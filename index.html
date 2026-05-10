@@ -299,8 +299,9 @@
   }
   .about-tile:hover { background: var(--bg3); }
   .about-tile-icon {
-    font-size: 22px;
     margin-bottom: 14px;
+    display: flex;
+    align-items: center;
   }
   .about-tile h4 {
     font-family: 'Cormorant Garamond', serif;
@@ -357,7 +358,8 @@
     color: var(--teal);
     letter-spacing: .1em;
   }
-  .service-icon { font-size: 28px; }
+  .service-icon { display: flex; align-items: center; }
+  .service-icon svg { flex-shrink: 0; }
   .service-card h3 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 24px;
@@ -442,7 +444,7 @@
     cursor: default;
   }
   .industry-item:hover { background: var(--bg); }
-  .industry-item .icon { font-size: 28px; }
+  .industry-item .icon { display: flex; align-items: center; margin-bottom: 0; }
   .industry-item h4 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 20px;
@@ -474,7 +476,7 @@
     transition: background .3s;
   }
   .feature-card:hover { background: #252522; }
-  .feature-card .f-icon { font-size: 26px; margin-bottom: 20px; }
+  .feature-card .f-icon { display: flex; align-items: center; margin-bottom: 20px; }
   .feature-card h4 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 21px;
@@ -799,22 +801,30 @@
   </div>
   <div class="about-right fade-up">
     <div class="about-tile">
-      <div class="about-tile-icon">🎯</div>
+      <div class="about-tile-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+      </div>
       <h4>Focused Product Company</h4>
       <p>Not a services firm. We build products tuned specifically for industrial environments.</p>
     </div>
     <div class="about-tile">
-      <div class="about-tile-icon">🇮🇳</div>
+      <div class="about-tile-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
       <h4>Made in India</h4>
       <p>Built for Indian manufacturing realities — power fluctuations, legacy machines, and all.</p>
     </div>
     <div class="about-tile">
-      <div class="about-tile-icon">⚡</div>
+      <div class="about-tile-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
       <h4>Fast Deployment</h4>
       <p>Go from zero to live dashboard in days, not months. Plug-and-play hardware + cloud software.</p>
     </div>
     <div class="about-tile">
-      <div class="about-tile-icon">🔒</div>
+      <div class="about-tile-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
       <h4>Secure & Reliable</h4>
       <p>Enterprise-grade data security with local edge processing and encrypted cloud sync.</p>
     </div>
@@ -835,7 +845,7 @@
   <div class="services-grid">
     <div class="service-card fade-up">
       <div class="service-num">01</div>
-      <div class="service-icon">📊</div>
+      <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
       <h3>OEE Monitoring</h3>
       <p>Track Overall Equipment Effectiveness in real time. Know exactly when your machines are running, idle, or down — and why — so you can act fast.</p>
       <div class="service-tags">
@@ -846,7 +856,7 @@
     </div>
     <div class="service-card fade-up">
       <div class="service-num">02</div>
-      <div class="service-icon">⚡</div>
+      <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
       <h3>Energy Management</h3>
       <p>Monitor energy consumption at machine, line, and plant level. Identify waste, benchmark efficiency, and reduce your electricity bills — automatically.</p>
       <div class="service-tags">
@@ -857,7 +867,7 @@
     </div>
     <div class="service-card fade-up">
       <div class="service-num">03</div>
-      <div class="service-icon">🔧</div>
+      <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
       <h3>Predictive Maintenance</h3>
       <p>Catch failures before they happen. Our AI-assisted analytics detect anomalies in vibration, temperature, and current — giving your team time to act.</p>
       <div class="service-tags">
@@ -868,7 +878,7 @@
     </div>
     <div class="service-card fade-up">
       <div class="service-num">04</div>
-      <div class="service-icon">📉</div>
+      <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
       <h3>Downtime Analysis</h3>
       <p>Automatically capture, categorize, and report every downtime event. Understand root causes and build a culture of continuous improvement.</p>
       <div class="service-tags">
@@ -879,7 +889,7 @@
     </div>
     <div class="service-card fade-up">
       <div class="service-num">05</div>
-      <div class="service-icon">📱</div>
+      <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
       <h3>Industrial Dashboards</h3>
       <p>Beautiful, real-time dashboards for operators, managers, and executives. From shop-floor screens to mobile apps — your data, always in view.</p>
       <div class="service-tags">
@@ -890,7 +900,7 @@
     </div>
     <div class="service-card fade-up">
       <div class="service-num">06</div>
-      <div class="service-icon">🤖</div>
+      <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07"/></svg></div>
       <h3>Smart Automation</h3>
       <p>Connect your PLCs, SCADA systems, and legacy machines to the IIoT layer. We bridge old equipment with new intelligence — no rip-and-replace needed.</p>
       <div class="service-tags">
@@ -936,42 +946,42 @@
   <h2>Built for the <em>makers</em><br/>of India.</h2>
   <div class="industry-list">
     <div class="industry-item fade-up">
-      <div class="icon">🔩</div>
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
       <h4>Auto & Auto Components</h4>
       <p>High-volume, precision manufacturing demands real-time visibility. We deliver it.</p>
     </div>
     <div class="industry-item fade-up">
-      <div class="icon">🏭</div>
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
       <h4>Discrete Manufacturing</h4>
       <p>Job shops, CNC units, and assembly lines — we monitor them all from a single pane.</p>
     </div>
     <div class="industry-item fade-up">
-      <div class="icon">💊</div>
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg></div>
       <h4>Pharmaceuticals</h4>
       <p>Compliance-ready data collection with batch traceability and equipment logs.</p>
     </div>
     <div class="industry-item fade-up">
-      <div class="icon">🧵</div>
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
       <h4>Textiles</h4>
       <p>Track loom efficiency, spindle performance, and power consumption at scale.</p>
     </div>
     <div class="industry-item fade-up">
-      <div class="icon">🍃</div>
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div>
       <h4>Food & Beverage</h4>
       <p>OEE and energy monitoring for filling lines, packaging, and cold chains.</p>
     </div>
     <div class="industry-item fade-up">
-      <div class="icon">🔌</div>
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
       <h4>Plastics & Rubber</h4>
       <p>Injection molding, blow molding, extruders — our sensors handle every signal type.</p>
     </div>
     <div class="industry-item fade-up">
-      <div class="icon">🏗️</div>
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
       <h4>Steel & Metal</h4>
       <p>Monitor furnaces, rolling mills, and presses with high-temperature rated hardware.</p>
     </div>
     <div class="industry-item fade-up">
-      <div class="icon">🧪</div>
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/></svg></div>
       <h4>Chemicals</h4>
       <p>Process-level monitoring with multi-parameter sensor fusion and hazard alerts.</p>
     </div>
@@ -984,32 +994,32 @@
   <h2>Everything your plant <em>needs.</em><br/>Nothing it doesn't.</h2>
   <div class="features-grid">
     <div class="feature-card fade-up">
-      <div class="f-icon">☁️</div>
+      <div class="f-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7EC9C6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
       <h4>Cloud + Edge Architecture</h4>
       <p>Edge computing handles local processing during downtime; cloud gives you global access and historical analytics — always in sync.</p>
     </div>
     <div class="feature-card fade-up">
-      <div class="f-icon">🔔</div>
+      <div class="f-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7EC9C6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
       <h4>Smart Alerts & Escalations</h4>
       <p>WhatsApp, SMS, email, and in-app alerts with role-based escalation trees — the right person always knows first.</p>
     </div>
     <div class="feature-card fade-up">
-      <div class="f-icon">📈</div>
+      <div class="f-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7EC9C6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
       <h4>Shift & Daily Reports</h4>
       <p>Auto-generated reports delivered to your inbox. No one needs to manually compile data ever again.</p>
     </div>
     <div class="feature-card fade-up">
-      <div class="f-icon">🔗</div>
+      <div class="f-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7EC9C6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
       <h4>ERP & MES Integration</h4>
       <p>Connect to SAP, Oracle, Tally, and custom ERP systems. Machine data meets production data seamlessly.</p>
     </div>
     <div class="feature-card fade-up">
-      <div class="f-icon">🛡️</div>
+      <div class="f-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7EC9C6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
       <h4>Multi-Plant Management</h4>
       <p>Manage 1 plant or 50 from a single login. Benchmark plants against each other and roll up KPIs to the group level.</p>
     </div>
     <div class="feature-card fade-up">
-      <div class="f-icon">🧩</div>
+      <div class="f-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7EC9C6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
       <h4>Plug-and-Play Hardware</h4>
       <p>Our sensors and gateways are pre-configured and tested. Field installation takes hours, not weeks, with zero disruption to production.</p>
     </div>
@@ -1039,21 +1049,21 @@
     <p>Whether you're just exploring IIoT or ready to deploy — we'd love to understand your plant and show you a live demo tailored to your needs.</p>
     <div class="contact-detail">
       <div class="contact-detail-item">
-        <div class="contact-detail-icon">📧</div>
+        <div class="contact-detail-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
         <div>
           <small>Email</small>
           <a href="mailto:info@saraltech.co.in">info@saraltech.co.in</a>
         </div>
       </div>
       <div class="contact-detail-item">
-        <div class="contact-detail-icon">🌐</div>
+        <div class="contact-detail-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
         <div>
           <small>Website</small>
           <a href="https://www.saraltech.co.in" target="_blank">www.saraltech.co.in</a>
         </div>
       </div>
       <div class="contact-detail-item">
-        <div class="contact-detail-icon">📍</div>
+        <div class="contact-detail-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <div>
           <small>Based In</small>
           <span>India — serving manufacturers nationwide</span>
