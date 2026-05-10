@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
   :root {
     --bg:       #F0EDE8;
@@ -1180,23 +1181,42 @@
     });
   });
 
-  // Form submit mock
-  function handleSubmit(e) {
-    e.preventDefault();
-    const msg = document.getElementById('form-msg');
-    msg.style.display = 'block';
-    e.target.querySelector('.btn-submit').textContent = 'Sent ✓';
-    e.target.querySelector('.btn-submit').style.background = '#2A9490';
-    setTimeout(() => { msg.style.display = 'none'; }, 5000);
-  }
+  // Supabase setup
+  const { createClient } = supabase;
+  const sb = createClient(
+    'https://saralprofin.supabase.co',
+    'sb_publishable_FDElBJoinuI75R_4RzmGSQ_3ws0n8vp'
+  );
 
-  // Animated counter on hero stats
-  function animateValue(el, end, suffix='') {
-    let start = 0, duration = 1400, step = duration / 60;
-    const timer = setInterval(() => {
-      start += end / (duration / step);
-      if (start >= end) { el.textContent = suffix; clearInterval(timer); }
-    }, step);
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('.btn-submit');
+    const msg = document.getElementById('form-msg');
+
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    const { error } = await sb.from('contacts').insert([{
+      name:     form.querySelector('input[placeholder="Rajesh Kumar"]').value,
+      company:  form.querySelector('input[placeholder="Acme Pvt. Ltd."]').value,
+      email:    form.querySelector('input[type="email"]').value,
+      phone:    form.querySelector('input[type="tel"]').value,
+      industry: form.querySelector('select').value,
+      message:  form.querySelector('textarea').value,
+    }]);
+
+    if (error) {
+      console.error(error);
+      btn.textContent = 'Failed — try again';
+      btn.style.background = '#c0392b';
+      btn.disabled = false;
+    } else {
+      msg.style.display = 'block';
+      btn.textContent = 'Sent ✓';
+      btn.style.background = '#2A9490';
+      form.reset();
+    }
   }
 </script>
 </body>
