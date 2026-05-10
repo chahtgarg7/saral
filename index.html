@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Saral Technologies | IIoT & Industry 4.0 Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg:       #F0EDE8;
+    --bg2:      #E8E3DC;
+    --bg3:      #DDD8CF;
+    --ink:      #1C1C1A;
+    --ink-soft: #5A574F;
+    --teal:     #1E6E6B;
+    --teal-lt:  #2A9490;
+    --teal-dim: #D4E8E7;
+    --gold:     #B5892A;
+    --line:     rgba(28,28,26,0.12);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 56px;
+    background: rgba(240,237,232,0.82);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+    transition: padding .3s;
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: .02em;
+    color: var(--ink);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); display: inline-block; }
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 13px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--teal); }
+  .nav-cta {
+    background: var(--teal);
+    color: #fff !important;
+    padding: 9px 22px;
+    border-radius: 2px;
+    letter-spacing: .08em;
+    font-size: 12px !important;
+    text-transform: uppercase;
+    transition: background .2s !important;
+  }
+  .nav-cta:hover { background: var(--teal-lt) !important; color: #fff !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 120px 56px 80px;
+    position: relative;
+    overflow: hidden;
+    gap: 60px;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 75% 50%, rgba(30,110,107,.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(181,137,42,.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 28px;
+  }
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--teal);
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -.01em;
+    margin-bottom: 32px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--teal);
+  }
+  .hero-sub {
+    font-size: 16px;
+    color: var(--ink-soft);
+    max-width: 420px;
+    margin-bottom: 48px;
+    line-height: 1.8;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--ink);
+    color: #fff;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background .25s, gap .25s;
+  }
+  .btn-primary:hover { background: var(--teal); gap: 18px; }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+    transition: color .2s, border-color .2s;
+  }
+  .btn-secondary:hover { color: var(--teal); border-color: var(--teal); }
+  .hero-actions { display: flex; align-items: center; gap: 36px; }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .stat-card {
+    background: var(--bg2);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp .7s ease both;
+  }
+  .stat-card:nth-child(1) { animation-delay: .1s; }
+  .stat-card:nth-child(2) { animation-delay: .2s; }
+  .stat-card:nth-child(3) { animation-delay: .3s; }
+  .stat-card:nth-child(4) { animation-delay: .4s; }
+  .stat-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--teal);
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  .stat-card:hover::after { opacity: 1; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 12px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .live-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--teal-dim);
+    border: 1px solid rgba(30,110,107,.2);
+    border-radius: 3px;
+    padding: 14px 20px;
+    font-size: 13px;
+    color: var(--teal);
+  }
+  .pulse {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .5; transform: scale(1.4); }
+  }
+
+  /* ─── SECTION COMMONS ─── */
+  section { padding: 100px 56px; }
+  .section-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .section-tag::after { content: ''; flex: 0 0 28px; height: 1px; background: var(--teal); }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 54px);
+    font-weight: 300;
+    line-height: 1.12;
+    letter-spacing: -.01em;
+  }
+  h2 em { font-style: italic; color: var(--teal); }
+
+  /* ─── ABOUT ─── */
+  .about {
+    background: var(--bg2);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about-left p {
+    color: var(--ink-soft);
+    margin-top: 28px;
+    font-size: 15.5px;
+    line-height: 1.85;
+    max-width: 420px;
+  }
+  .about-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .about-tile {
+    background: var(--bg2);
+    padding: 32px 28px;
+    transition: background .25s;
+  }
+  .about-tile:hover { background: var(--bg3); }
+  .about-tile-icon {
+    font-size: 22px;
+    margin-bottom: 14px;
+  }
+  .about-tile h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  .about-tile p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.7; }
+
+  /* ─── SERVICES ─── */
+  .services { background: var(--bg); }
+  .services-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    gap: 40px;
+  }
+  .services-intro { color: var(--ink-soft); max-width: 360px; font-size: 15px; line-height: 1.8; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .service-card {
+    background: var(--bg);
+    padding: 44px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: background .3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--teal);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s ease;
+  }
+  .service-card:hover { background: var(--bg2); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--teal);
+    letter-spacing: .1em;
+  }
+  .service-icon { font-size: 28px; }
+  .service-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+  .service-card p { font-size: 14px; color: var(--ink-soft); line-height: 1.75; }
+  .service-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+  .tag {
+    background: var(--teal-dim);
+    color: var(--teal);
+    font-size: 11px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  /* ─── HOW IT WORKS ─── */
+  .process { background: var(--bg3); }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 60px;
+    position: relative;
+  }
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 30px; left: 12.5%; right: 12.5%;
+    height: 1px;
+    background: var(--teal);
+    opacity: .35;
+  }
+  .step {
+    padding: 0 24px;
+    text-align: center;
+  }
+  .step-num {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    border: 1px solid var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--teal);
+    background: var(--bg3);
+    position: relative;
+    z-index: 1;
+  }
+  .step h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+  .step p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.7; }
+
+  /* ─── INDUSTRIES ─── */
+  .industries { background: var(--bg2); }
+  .industry-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 60px;
+  }
+  .industry-item {
+    background: var(--bg2);
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: background .25s;
+    cursor: default;
+  }
+  .industry-item:hover { background: var(--bg); }
+  .industry-item .icon { font-size: 28px; }
+  .industry-item h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  .industry-item p { font-size: 13px; color: var(--ink-soft); line-height: 1.7; }
+
+  /* ─── FEATURES ─── */
+  .features {
+    background: var(--ink);
+    color: #fff;
+  }
+  .features .section-tag { color: #7EC9C6; }
+  .features .section-tag::after { background: #7EC9C6; }
+  .features h2 { color: #fff; }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 60px;
+  }
+  .feature-card {
+    background: var(--ink);
+    padding: 40px 32px;
+    transition: background .3s;
+  }
+  .feature-card:hover { background: #252522; }
+  .feature-card .f-icon { font-size: 26px; margin-bottom: 20px; }
+  .feature-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .feature-card p { font-size: 14px; color: rgba(255,255,255,.55); line-height: 1.75; }
+
+  /* ─── TESTIMONIAL ─── */
+  .testimonial {
+    background: var(--bg);
+    text-align: center;
+    padding: 100px 56px;
+  }
+  .testimonial blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 3vw, 38px);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.5;
+    max-width: 780px;
+    margin: 0 auto 32px;
+    color: var(--ink);
+  }
+  .testimonial cite {
+    font-style: normal;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .testimonial cite span { color: var(--teal); }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    background: var(--teal);
+    padding: 100px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+  }
+  .cta-section h2 {
+    color: #fff;
+    font-size: clamp(32px, 4vw, 52px);
+  }
+  .cta-section h2 em { color: rgba(255,255,255,.7); }
+  .cta-section p { color: rgba(255,255,255,.75); margin-top: 16px; max-width: 400px; }
+  .btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    color: var(--teal);
+    padding: 18px 40px;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    white-space: nowrap;
+    transition: background .25s;
+    font-weight: 500;
+  }
+  .btn-white:hover { background: rgba(255,255,255,.88); }
+
+  /* ─── CONTACT ─── */
+  .contact {
+    background: var(--bg2);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .contact-info p {
+    color: var(--ink-soft);
+    margin-top: 24px;
+    max-width: 340px;
+    line-height: 1.85;
+    font-size: 15px;
+  }
+  .contact-detail {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .contact-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .contact-detail-icon {
+    width: 36px; height: 36px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    background: var(--bg);
+  }
+  .contact-detail-item div small {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 3px;
+  }
+  .contact-detail-item div a,
+  .contact-detail-item div span {
+    font-size: 14px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .contact-detail-item div a:hover { color: var(--teal); }
+
+  /* Contact Form */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-group label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 13px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color .2s;
+    resize: vertical;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--teal);
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(28,28,26,.3); }
+  .btn-submit {
+    align-self: flex-start;
+    background: var(--teal);
+    color: #fff;
+    border: none;
+    padding: 16px 40px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background .25s;
+  }
+  .btn-submit:hover { background: var(--teal-lt); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,.5);
+    padding: 60px 56px 36px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 60px;
+  }
+  .footer-brand .logo { color: #fff; margin-bottom: 16px; }
+  .footer-brand p { font-size: 13.5px; line-height: 1.75; }
+  footer h5 {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.85);
+    margin-bottom: 18px;
+  }
+  footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  footer ul li a {
+    text-decoration: none;
+    font-size: 13.5px;
+    color: rgba(255,255,255,.45);
+    transition: color .2s;
+  }
+  footer ul li a:hover { color: #7EC9C6; }
+  .footer-bottom {
+    background: var(--ink);
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding: 20px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(255,255,255,.3);
+  }
+  .footer-bottom a { color: rgba(255,255,255,.3); text-decoration: none; }
+  .footer-bottom a:hover { color: #7EC9C6; }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    width: 100%; height: 1px;
+    background: var(--line);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg2); }
+  ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    section { padding: 70px 24px; }
+    .hero { grid-template-columns: 1fr; padding: 110px 24px 60px; gap: 40px; }
+    .about { grid-template-columns: 1fr; padding: 70px 24px; gap: 48px; }
+    .services-header { flex-direction: column; align-items: flex-start; }
+    .services-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .process-steps::before { display: none; }
+    .industry-list { grid-template-columns: 1fr 1fr; }
+    .features-grid { grid-template-columns: 1fr; }
+    .cta-section { flex-direction: column; gap: 40px; padding: 70px 24px; }
+    .contact { grid-template-columns: 1fr; padding: 70px 24px; gap: 48px; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { grid-template-columns: 1fr 1fr; gap: 36px; padding: 48px 24px 24px; }
+    .footer-bottom { flex-direction: column; gap: 8px; padding: 16px 24px; }
+    .industries { padding: 70px 24px; }
+    .testimonial { padding: 70px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <span class="logo-dot"></span>
+    Saral Technologies
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Industry 4.0 Solutions</div>
+    <h1>Smart factories<br/>start with <em>smarter</em><br/>data.</h1>
+    <p class="hero-sub">Saral Technologies helps manufacturers unlock the full potential of IIoT — with real-time OEE monitoring, energy management, predictive maintenance, and intelligent dashboards built for the modern plant floor.</p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">Explore Solutions →</a>
+      <a href="#contact" class="btn-secondary">Talk to us</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-num">↑ 35%</div>
+        <div class="stat-label">OEE Improvement</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Real-time Monitoring</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Unplanned Downtime Goal</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">↓ 20%</div>
+        <div class="stat-label">Energy Waste Reduction</div>
+      </div>
+    </div>
+    <div class="live-badge">
+      <span class="pulse"></span>
+      Live dashboards running across Indian manufacturing plants
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-left">
+    <div class="section-tag">Who We Are</div>
+    <h2>Built for the <em>factory</em><br/>of the future.</h2>
+    <p>Saral Technologies is a focused IIoT product company helping Indian manufacturers transition into Industry 4.0 — without the complexity. We combine deep industrial knowledge with modern software to make your machines talk, your data meaningful, and your decisions faster.</p>
+    <p style="margin-top:16px">From small job shops to large-scale production lines, we make smart manufacturing accessible, affordable, and actionable.</p>
+  </div>
+  <div class="about-right fade-up">
+    <div class="about-tile">
+      <div class="about-tile-icon">🎯</div>
+      <h4>Focused Product Company</h4>
+      <p>Not a services firm. We build products tuned specifically for industrial environments.</p>
+    </div>
+    <div class="about-tile">
+      <div class="about-tile-icon">🇮🇳</div>
+      <h4>Made in India</h4>
+      <p>Built for Indian manufacturing realities — power fluctuations, legacy machines, and all.</p>
+    </div>
+    <div class="about-tile">
+      <div class="about-tile-icon">⚡</div>
+      <h4>Fast Deployment</h4>
+      <p>Go from zero to live dashboard in days, not months. Plug-and-play hardware + cloud software.</p>
+    </div>
+    <div class="about-tile">
+      <div class="about-tile-icon">🔒</div>
+      <h4>Secure & Reliable</h4>
+      <p>Enterprise-grade data security with local edge processing and encrypted cloud sync.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-tag">What We Do</div>
+      <h2>Solutions that make<br/><em>machines speak.</em></h2>
+    </div>
+    <p class="services-intro">From a single sensor to a full plant-wide intelligence layer — our modular IIoT products connect, collect, and convert your machine data into real business outcomes.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <div class="service-num">01</div>
+      <div class="service-icon">📊</div>
+      <h3>OEE Monitoring</h3>
+      <p>Track Overall Equipment Effectiveness in real time. Know exactly when your machines are running, idle, or down — and why — so you can act fast.</p>
+      <div class="service-tags">
+        <span class="tag">Availability</span>
+        <span class="tag">Performance</span>
+        <span class="tag">Quality</span>
+      </div>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">02</div>
+      <div class="service-icon">⚡</div>
+      <h3>Energy Management</h3>
+      <p>Monitor energy consumption at machine, line, and plant level. Identify waste, benchmark efficiency, and reduce your electricity bills — automatically.</p>
+      <div class="service-tags">
+        <span class="tag">EMS</span>
+        <span class="tag">Dashboards</span>
+        <span class="tag">Alerts</span>
+      </div>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">03</div>
+      <div class="service-icon">🔧</div>
+      <h3>Predictive Maintenance</h3>
+      <p>Catch failures before they happen. Our AI-assisted analytics detect anomalies in vibration, temperature, and current — giving your team time to act.</p>
+      <div class="service-tags">
+        <span class="tag">AI Analytics</span>
+        <span class="tag">Alerts</span>
+        <span class="tag">Reports</span>
+      </div>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">04</div>
+      <div class="service-icon">📉</div>
+      <h3>Downtime Analysis</h3>
+      <p>Automatically capture, categorize, and report every downtime event. Understand root causes and build a culture of continuous improvement.</p>
+      <div class="service-tags">
+        <span class="tag">Root Cause</span>
+        <span class="tag">Trends</span>
+        <span class="tag">Shift Reports</span>
+      </div>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">05</div>
+      <div class="service-icon">📱</div>
+      <h3>Industrial Dashboards</h3>
+      <p>Beautiful, real-time dashboards for operators, managers, and executives. From shop-floor screens to mobile apps — your data, always in view.</p>
+      <div class="service-tags">
+        <span class="tag">Mobile</span>
+        <span class="tag">TV Screens</span>
+        <span class="tag">Web</span>
+      </div>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">06</div>
+      <div class="service-icon">🤖</div>
+      <h3>Smart Automation</h3>
+      <p>Connect your PLCs, SCADA systems, and legacy machines to the IIoT layer. We bridge old equipment with new intelligence — no rip-and-replace needed.</p>
+      <div class="service-tags">
+        <span class="tag">PLC Integration</span>
+        <span class="tag">SCADA</span>
+        <span class="tag">Edge</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="section-tag">How It Works</div>
+  <h2>From sensor to <em>insight</em><br/>in four steps.</h2>
+  <div class="process-steps">
+    <div class="step fade-up">
+      <div class="step-num">01</div>
+      <h4>Connect</h4>
+      <p>Install sensors and edge devices on your machines. We support PLCs, analog signals, energy meters, and more — legacy or modern.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">02</div>
+      <h4>Collect</h4>
+      <p>Data flows securely to our cloud platform via edge gateways. No data is ever lost — even during network interruptions.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">03</div>
+      <h4>Analyze</h4>
+      <p>Our platform processes machine data to compute OEE, detect anomalies, track energy use, and generate shift-level reports automatically.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">04</div>
+      <h4>Act</h4>
+      <p>Get alerts, dashboards, and reports that drive decisions on the shop floor and in the boardroom — all from one platform.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="industries" id="industries">
+  <div class="section-tag">Industries We Serve</div>
+  <h2>Built for the <em>makers</em><br/>of India.</h2>
+  <div class="industry-list">
+    <div class="industry-item fade-up">
+      <div class="icon">🔩</div>
+      <h4>Auto & Auto Components</h4>
+      <p>High-volume, precision manufacturing demands real-time visibility. We deliver it.</p>
+    </div>
+    <div class="industry-item fade-up">
+      <div class="icon">🏭</div>
+      <h4>Discrete Manufacturing</h4>
+      <p>Job shops, CNC units, and assembly lines — we monitor them all from a single pane.</p>
+    </div>
+    <div class="industry-item fade-up">
+      <div class="icon">💊</div>
+      <h4>Pharmaceuticals</h4>
+      <p>Compliance-ready data collection with batch traceability and equipment logs.</p>
+    </div>
+    <div class="industry-item fade-up">
+      <div class="icon">🧵</div>
+      <h4>Textiles</h4>
+      <p>Track loom efficiency, spindle performance, and power consumption at scale.</p>
+    </div>
+    <div class="industry-item fade-up">
+      <div class="icon">🍃</div>
+      <h4>Food & Beverage</h4>
+      <p>OEE and energy monitoring for filling lines, packaging, and cold chains.</p>
+    </div>
+    <div class="industry-item fade-up">
+      <div class="icon">🔌</div>
+      <h4>Plastics & Rubber</h4>
+      <p>Injection molding, blow molding, extruders — our sensors handle every signal type.</p>
+    </div>
+    <div class="industry-item fade-up">
+      <div class="icon">🏗️</div>
+      <h4>Steel & Metal</h4>
+      <p>Monitor furnaces, rolling mills, and presses with high-temperature rated hardware.</p>
+    </div>
+    <div class="industry-item fade-up">
+      <div class="icon">🧪</div>
+      <h4>Chemicals</h4>
+      <p>Process-level monitoring with multi-parameter sensor fusion and hazard alerts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES / DARK -->
+<section class="features">
+  <div class="section-tag">Platform Features</div>
+  <h2>Everything your plant <em>needs.</em><br/>Nothing it doesn't.</h2>
+  <div class="features-grid">
+    <div class="feature-card fade-up">
+      <div class="f-icon">☁️</div>
+      <h4>Cloud + Edge Architecture</h4>
+      <p>Edge computing handles local processing during downtime; cloud gives you global access and historical analytics — always in sync.</p>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="f-icon">🔔</div>
+      <h4>Smart Alerts & Escalations</h4>
+      <p>WhatsApp, SMS, email, and in-app alerts with role-based escalation trees — the right person always knows first.</p>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="f-icon">📈</div>
+      <h4>Shift & Daily Reports</h4>
+      <p>Auto-generated reports delivered to your inbox. No one needs to manually compile data ever again.</p>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="f-icon">🔗</div>
+      <h4>ERP & MES Integration</h4>
+      <p>Connect to SAP, Oracle, Tally, and custom ERP systems. Machine data meets production data seamlessly.</p>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="f-icon">🛡️</div>
+      <h4>Multi-Plant Management</h4>
+      <p>Manage 1 plant or 50 from a single login. Benchmark plants against each other and roll up KPIs to the group level.</p>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="f-icon">🧩</div>
+      <h4>Plug-and-Play Hardware</h4>
+      <p>Our sensors and gateways are pre-configured and tested. Field installation takes hours, not weeks, with zero disruption to production.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <blockquote>"With Saral Technologies, we finally know what's happening on our shop floor in real time. OEE reports that used to take days now happen automatically — and our downtime has dropped significantly in just three months."</blockquote>
+  <cite>Plant Head, <span>Leading Auto Components Manufacturer, Pune</span></cite>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-section">
+  <div>
+    <h2>Ready to make your<br/>factory <em>intelligent?</em></h2>
+    <p>Schedule a free 30-minute consultation with our IIoT specialists. We'll assess your plant and show you exactly what's possible.</p>
+  </div>
+  <a href="#contact" class="btn-white">Book a Free Demo →</a>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-info">
+    <div class="section-tag">Get in Touch</div>
+    <h2>Let's build your <em>smart</em><br/>factory together.</h2>
+    <p>Whether you're just exploring IIoT or ready to deploy — we'd love to understand your plant and show you a live demo tailored to your needs.</p>
+    <div class="contact-detail">
+      <div class="contact-detail-item">
+        <div class="contact-detail-icon">📧</div>
+        <div>
+          <small>Email</small>
+          <a href="mailto:info@saraltech.co.in">info@saraltech.co.in</a>
+        </div>
+      </div>
+      <div class="contact-detail-item">
+        <div class="contact-detail-icon">🌐</div>
+        <div>
+          <small>Website</small>
+          <a href="https://www.saraltech.co.in" target="_blank">www.saraltech.co.in</a>
+        </div>
+      </div>
+      <div class="contact-detail-item">
+        <div class="contact-detail-icon">📍</div>
+        <div>
+          <small>Based In</small>
+          <span>India — serving manufacturers nationwide</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form class="contact-form" onsubmit="handleSubmit(event)">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="Rajesh Kumar" required />
+      </div>
+      <div class="form-group">
+        <label>Company</label>
+        <input type="text" placeholder="Acme Pvt. Ltd." />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="you@company.com" required />
+      </div>
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="tel" placeholder="+91 98765 43210" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Industry</label>
+      <select>
+        <option value="">Select your industry…</option>
+        <option>Auto & Auto Components</option>
+        <option>Discrete Manufacturing</option>
+        <option>Pharmaceuticals</option>
+        <option>Textiles</option>
+        <option>Food & Beverage</option>
+        <option>Plastics & Rubber</option>
+        <option>Steel & Metal</option>
+        <option>Chemicals</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Message</label>
+      <textarea rows="4" placeholder="Tell us about your plant, your challenges, and what you'd like to achieve…"></textarea>
+    </div>
+    <button type="submit" class="btn-submit">Send Message →</button>
+    <div id="form-msg" style="display:none; color:var(--teal); font-size:13px; margin-top:4px;">
+      ✓ Message sent! We'll be in touch within 24 hours.
+    </div>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <a href="#" class="logo"><span class="logo-dot"></span>Saral Technologies</a>
+    <p>Helping Indian manufacturers build smarter, leaner, and more efficient operations with IIoT and Industry 4.0 solutions.</p>
+  </div>
+  <div>
+    <h5>Solutions</h5>
+    <ul>
+      <li><a href="#services">OEE Monitoring</a></li>
+      <li><a href="#services">Energy Management</a></li>
+      <li><a href="#services">Predictive Maintenance</a></li>
+      <li><a href="#services">Downtime Analysis</a></li>
+      <li><a href="#services">Industrial Dashboards</a></li>
+    </ul>
+  </div>
+  <div>
+    <h5>Industries</h5>
+    <ul>
+      <li><a href="#industries">Auto Components</a></li>
+      <li><a href="#industries">Pharmaceuticals</a></li>
+      <li><a href="#industries">Textiles</a></li>
+      <li><a href="#industries">Food & Beverage</a></li>
+      <li><a href="#industries">Steel & Metal</a></li>
+    </ul>
+  </div>
+  <div>
+    <h5>Company</h5>
+    <ul>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="mailto:info@saraltech.co.in">Email Us</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2025 Saral Technologies. All rights reserved.</span>
+  <span><a href="https://www.saraltech.co.in" target="_blank">saraltech.co.in</a></span>
+</div>
+
+<script>
+  // Intersection observer for fade-up animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Smooth scroll for anchors
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  // Form submit mock
+  function handleSubmit(e) {
+    e.preventDefault();
+    const msg = document.getElementById('form-msg');
+    msg.style.display = 'block';
+    e.target.querySelector('.btn-submit').textContent = 'Sent ✓';
+    e.target.querySelector('.btn-submit').style.background = '#2A9490';
+    setTimeout(() => { msg.style.display = 'none'; }, 5000);
+  }
+
+  // Animated counter on hero stats
+  function animateValue(el, end, suffix='') {
+    let start = 0, duration = 1400, step = duration / 60;
+    const timer = setInterval(() => {
+      start += end / (duration / step);
+      if (start >= end) { el.textContent = suffix; clearInterval(timer); }
+    }, step);
+  }
+</script>
+</body>
+</html>
